@@ -19,21 +19,17 @@ function inicializarEventos() {
     formulario.onsubmit = (event) => validarFormulario(event);
   }
   
-  function validarFormulario(event) {
+  function validarFormulario(event) { 
     event.preventDefault();
     let cantidad = parseInt(inputCantidad.value);
   
-    const idExiste = productos.some((producto) => producto.id === idProducto);
+    const idExiste = catalogo.some((producto) => producto.id === catalogo);
     if (!idExiste) {
-      let producto = new Producto(
+      let producto = new catalogo(
         cantidad
       );
   
-      productos.push(producto);
-      formulario.reset();
+      catalogo.push(producto);
+    catalogo.reset();
   
-      pintarProductos();
-    } else {
-      alert("El id ya existe");
-    }
-  }
+  }}
